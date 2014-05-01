@@ -39,6 +39,21 @@ namespace URLFriendly2
 				return (MainWindow)base.Window;
 			}
 		}
+
+		partial void ButtonDecode (NSObject sender)
+		{
+			var result = URLFriendly.URLHandler.Encode (UserInputOutlet.Cell.StringValue);
+			Console.WriteLine ("Decoded {0}", result);
+			ResultsOutlet.StringValue = result;
+		}
+
+		partial void ButtonEncode (NSObject sender)
+		{
+			var result = URLFriendly.URLHandler.Decode (UserInputOutlet.Cell.StringValue);
+			Console.WriteLine ("Encoded {0}", result);
+			ResultsOutlet.StringValue = result;
+		}
+
 	}
 }
 
