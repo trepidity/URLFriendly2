@@ -6,8 +6,10 @@ using MonoMac.AppKit;
 
 namespace URLFriendly2
 {
-	public partial class MainWindowController : MonoMac.AppKit.NSWindowController
+	public partial class MainWindowController : NSWindowController
 	{
+		private static string[] pboardTypes = { "NSStringPboardType" };
+
 		#region Constructors
 
 		// Called when created from unmanaged code
@@ -45,6 +47,9 @@ namespace URLFriendly2
 			var result = URLFriendly.URLHandler.Encode (UserInputOutlet.Cell.StringValue);
 			Console.WriteLine ("Decoded {0}", result);
 			ResultsOutlet.StringValue = result;
+			NSPasteboard.GeneralPasteboard.DeclareTypes(pboardTypes, null);
+			NSPasteboard.GeneralPasteboard.SetStringForType(result, pboardTypes[0]);
+			MsgOutlet.StringValue = "Successfully copied to clipboard";
 		}
 
 		partial void ButtonEncode (NSObject sender)
@@ -52,6 +57,9 @@ namespace URLFriendly2
 			var result = URLFriendly.URLHandler.Decode (UserInputOutlet.Cell.StringValue);
 			Console.WriteLine ("Encoded {0}", result);
 			ResultsOutlet.StringValue = result;
+			NSPasteboard.GeneralPasteboard.DeclareTypes(pboardTypes, null);
+			NSPasteboard.GeneralPasteboard.SetStringForType(result, pboardTypes[0]);
+			MsgOutlet.StringValue = "Successfully copied to clipboard";
 		}
 
 	}

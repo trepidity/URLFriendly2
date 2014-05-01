@@ -1,0 +1,14 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Release" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="URLFriendly2/MainWindowController.cs">
+    <Files>
+      <File FileName="URLFriendly2/Main.cs" Line="6" Column="1" />
+      <File FileName="URLFriendly2/URLHandler.cs" Line="14" Column="32" />
+      <File FileName="URLFriendly2/MainWindowController.cs" Line="33" Column="4" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>
