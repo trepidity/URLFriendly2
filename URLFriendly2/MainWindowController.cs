@@ -8,7 +8,7 @@ namespace URLFriendly2
 {
 	public partial class MainWindowController : NSWindowController
 	{
-		private static string[] pboardTypes = { "NSStringPboardType" };
+		static readonly string[] pboardTypes = { "NSStringPboardType" };
 
 		#region Constructors
 

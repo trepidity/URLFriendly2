@@ -87,6 +87,7 @@
       <DependentUpon>AppDelegate.cs</DependentUpon>
     </Compile>
     <Compile Include="URLHandler.cs" />
+    <Compile Include="DragDelegate.cs" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="MainWindow.xib" />
@@ -96,4 +97,13 @@
     <None Include="Info.plist" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <Content Include="icon.175x175-75" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\URLFriendly2\Images.xcassets\AppIcon.appiconset\Contents.json" />
+    <BundleResource Include="Resources\URLFriendly2\Images.xcassets\AppIcon.appiconset\icon.175x175-75.png" />
+    <BundleResource Include="Resources\URLFriendly2\Images.xcassets\icon.175x175-75-1.imageset\Contents.json" />
+    <BundleResource Include="Resources\URLFriendly2\Images.xcassets\icon.175x175-75-1.imageset\icon.175x175-75.png" />
+  </ItemGroup>
 </Project>
