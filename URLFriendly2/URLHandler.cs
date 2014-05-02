@@ -24,12 +24,12 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 using System;
-using System.Web;
 using System.Text;
+using System.Web;
 
-namespace URLFriendly
+namespace URLFriendly2
 {
-	public class URLHandler
+	public static class URLHandler2
 	{
 
 		public static string Encode (String url)

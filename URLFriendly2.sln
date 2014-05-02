@@ -19,5 +19,6 @@ Global
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
 		StartupItem = URLFriendly2\URLFriendly2.csproj
+		version = 0.2
 	EndGlobalSection
 EndGlobal

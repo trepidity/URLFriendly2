@@ -5,23 +5,10 @@
 	<key>CFBundleDisplayName</key>
 	<string>URLFriendly2</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.your-company.URLFriendly2</string>
+	<string>org.jaredjennings.URLFriendly2</string>
 	<key>CFBundleName</key>
 	<string>URLFriendly2</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1</string>
-	<key>CFBundleURLTypes</key>
-	<array>
-		<dict>
-			<key>CFBundleTypeRole</key>
-			<string>Viewer</string>
-			<key>CFBundleURLSchemes</key>
-			<array>
-				<string>http</string>
-			</array>
-		</dict>
-	</array>
-	<key>CFBundleVersion</key>
 	<string>1</string>
 	<key>LSApplicationCategoryType</key>
 	<string>public.app-category.developer-tools</string>
@@ -31,5 +18,9 @@
 	<string>MainMenu</string>
 	<key>NSPrincipalClass</key>
 	<string>NSApplication</string>
+	<key>CFBundleVersion</key>
+	<string>2</string>
+	<key>CFBundleIconFile</key>
+	<string>URLFriendly</string>
 </dict>
 </plist>

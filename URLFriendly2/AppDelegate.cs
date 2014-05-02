@@ -8,12 +8,8 @@ namespace URLFriendly2
 {
 	public partial class AppDelegate : NSApplicationDelegate
 	{
-		static string[] pboardTypes = { "NSStringPboardType" };
+		static readonly string[] pboardTypes = { "NSStringPboardType" };
 		MainWindowController mainWindowController;
-
-		public AppDelegate ()
-		{
-		}
 
 		public override void FinishedLaunching (NSObject notification)
 		{
@@ -21,27 +17,48 @@ namespace URLFriendly2
 			mainWindowController.Window.MakeKeyAndOrderFront (this);
 		}
 
-		public override bool OpenFile (NSApplication sender, string filename)
-		{
-			throw new System.NotImplementedException ();
-		}
-
 		partial void Decode (NSObject sender)
 		{
-			var result = URLFriendly.URLHandler.Decode (NSPasteboard.GeneralPasteboard.GetStringForType(pboardTypes[0]));
-			NSPasteboard.GeneralPasteboard.DeclareTypes(pboardTypes, null);
-			NSPasteboard.GeneralPasteboard.SetStringForType(result, pboardTypes[0]);
-			Console.WriteLine ("Successfully copied to clipboard {0}", result);
+			Decode();
 		}
 
 		partial void Encode (NSObject sender)
 		{
-			var result = URLFriendly.URLHandler.Encode (NSPasteboard.GeneralPasteboard.GetStringForType(pboardTypes[0]));
+			Encode ();
+		}
+
+		partial void MainMenuDecode (NSObject sender)
+		{
+			Decode ();
+		}
+
+		partial void MainMenuEncode (NSObject sender)
+		{
+			Encode ();
+		}
+
+		partial void MenuAbout (NSObject sender)
+		{
+			AboutPanel.MakeKeyAndOrderFront(this);
+
+		}
+
+
+		void Decode ()
+		{
+			var result = URLFriendly2.URLHandler2.Decode (NSPasteboard.GeneralPasteboard.GetStringForType(pboardTypes[0]));
 			NSPasteboard.GeneralPasteboard.DeclareTypes(pboardTypes, null);
 			NSPasteboard.GeneralPasteboard.SetStringForType(result, pboardTypes[0]);
 			Console.WriteLine ("Successfully copied to clipboard {0}", result);
 		}
 
+		void Encode ()
+		{
+			var result = URLFriendly2.URLHandler2.Encode (NSPasteboard.GeneralPasteboard.GetStringForType(pboardTypes[0]));
+			NSPasteboard.GeneralPasteboard.DeclareTypes(pboardTypes, null);
+			NSPasteboard.GeneralPasteboard.SetStringForType(result, pboardTypes[0]);
+			Console.WriteLine ("Successfully copied to clipboard {0}", result);
+		}
 	}
 }
 

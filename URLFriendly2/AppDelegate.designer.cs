@@ -13,6 +13,9 @@ namespace URLFriendly2
 	partial class AppDelegate
 	{
 		[Outlet]
+		MonoMac.AppKit.NSPanel AboutPanel { get; set; }
+
+		[Outlet]
 		MonoMac.AppKit.NSMenu DockMenuOutlet { get; set; }
 
 		[Action ("Decode:")]
@@ -20,12 +23,26 @@ namespace URLFriendly2
 
 		[Action ("Encode:")]
 		partial void Encode (MonoMac.Foundation.NSObject sender);
+
+		[Action ("MainMenuDecode:")]
+		partial void MainMenuDecode (MonoMac.Foundation.NSObject sender);
+
+		[Action ("MainMenuEncode:")]
+		partial void MainMenuEncode (MonoMac.Foundation.NSObject sender);
+
+		[Action ("MenuAbout:")]
+		partial void MenuAbout (MonoMac.Foundation.NSObject sender);
 		
 		void ReleaseDesignerOutlets ()
 		{
 			if (DockMenuOutlet != null) {
 				DockMenuOutlet.Dispose ();
 				DockMenuOutlet = null;
+			}
+
+			if (AboutPanel != null) {
+				AboutPanel.Dispose ();
+				AboutPanel = null;
 			}
 		}
 	}

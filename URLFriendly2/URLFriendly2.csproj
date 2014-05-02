@@ -9,6 +9,7 @@
     <RootNamespace>URLFriendly2</RootNamespace>
     <MonoMacResourcePrefix>Resources</MonoMacResourcePrefix>
     <AssemblyName>URLFriendly2</AssemblyName>
+    <ReleaseVersion>0.2</ReleaseVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -87,7 +88,6 @@
       <DependentUpon>AppDelegate.cs</DependentUpon>
     </Compile>
     <Compile Include="URLHandler.cs" />
-    <Compile Include="DragDelegate.cs" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="MainWindow.xib" />
@@ -105,5 +105,16 @@
     <BundleResource Include="Resources\URLFriendly2\Images.xcassets\AppIcon.appiconset\icon.175x175-75.png" />
     <BundleResource Include="Resources\URLFriendly2\Images.xcassets\icon.175x175-75-1.imageset\Contents.json" />
     <BundleResource Include="Resources\URLFriendly2\Images.xcassets\icon.175x175-75-1.imageset\icon.175x175-75.png" />
+    <BundleResource Include="Resources\URLFriendly2\Images.xcassets\icon.175x175-75-1.imageset\icon.175x175-75-1.png" />
+    <BundleResource Include="Resources\URLFriendly2\Images.xcassets\icon.175x175-75-2.imageset\Contents.json" />
+    <BundleResource Include="Resources\URLFriendly2\Images.xcassets\icon.175x175-75-2.imageset\icon.175x175-75.png" />
+    <BundleResource Include="Resources\URLFriendly2\Images.xcassets\icon.175x175-75.imageset\Contents.json" />
+    <BundleResource Include="Resources\URLFriendly2\Images.xcassets\icon.175x175-75.imageset\icon.175x175-75.png" />
+    <BundleResource Include="Resources\Cocoa-Mono-icns.icns" />
+    <BundleResource Include="Resources\URLFriendly.icns" />
+    <BundleResource Include="URLFriendly.icns" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Cocoa-Mono-icns.icns" />
   </ItemGroup>
 </Project>

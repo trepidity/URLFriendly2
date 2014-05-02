@@ -44,7 +44,7 @@ namespace URLFriendly2
 
 		partial void ButtonDecode (NSObject sender)
 		{
-			var result = URLFriendly.URLHandler.Encode (UserInputOutlet.Cell.StringValue);
+			var result = URLFriendly2.URLHandler2.Encode (UserInputOutlet.Cell.StringValue);
 			Console.WriteLine ("Decoded {0}", result);
 			ResultsOutlet.StringValue = result;
 			NSPasteboard.GeneralPasteboard.DeclareTypes(pboardTypes, null);
@@ -54,7 +54,7 @@ namespace URLFriendly2
 
 		partial void ButtonEncode (NSObject sender)
 		{
-			var result = URLFriendly.URLHandler.Decode (UserInputOutlet.Cell.StringValue);
+			var result = URLFriendly2.URLHandler2.Decode (UserInputOutlet.Cell.StringValue);
 			Console.WriteLine ("Encoded {0}", result);
 			ResultsOutlet.StringValue = result;
 			NSPasteboard.GeneralPasteboard.DeclareTypes(pboardTypes, null);

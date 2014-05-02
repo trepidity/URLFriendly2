@@ -1,10 +1,10 @@
-﻿<Properties MonoDevelop.MonoMac.LastXamMacNagTime="5/2/2014 7:00:08 AM">
+﻿<Properties MonoDevelop.MonoMac.LastXamMacNagTime="5/2/2014 7:59:24 AM">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Release" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="URLFriendly2/MainWindowController.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="URLFriendly2/AppDelegate.cs">
     <Files>
-      <File FileName="URLFriendly2/Main.cs" Line="6" Column="1" />
-      <File FileName="URLFriendly2/URLHandler.cs" Line="14" Column="32" />
-      <File FileName="URLFriendly2/MainWindowController.cs" Line="33" Column="4" />
+      <File FileName="URLFriendly2/Main.cs" Line="1" Column="1" />
+      <File FileName="URLFriendly2/MainWindowController.cs" Line="1" Column="1" />
+      <File FileName="URLFriendly2/AppDelegate.cs" Line="32" Column="14" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
