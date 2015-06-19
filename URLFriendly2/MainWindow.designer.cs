@@ -9,6 +9,23 @@ using System.CodeDom.Compiler;
 
 namespace URLFriendly2
 {
+	[Register ("MainWindow")]
+	partial class MainWindow
+	{
+		[Action ("ButtonDecode:")]
+		partial void ButtonDecode (MonoMac.Foundation.NSObject sender);
+
+		[Action ("ButtonEncode:")]
+		partial void ButtonEncode (MonoMac.Foundation.NSObject sender);
+
+		[Action ("TextInput:")]
+		partial void TextInput (MonoMac.Foundation.NSObject sender);
+		
+		void ReleaseDesignerOutlets ()
+		{
+		}
+	}
+
 	[Register ("MainWindowController")]
 	partial class MainWindowController
 	{
@@ -45,6 +62,11 @@ namespace URLFriendly2
 				EncodeButton = null;
 			}
 
+			if (MsgOutlet != null) {
+				MsgOutlet.Dispose ();
+				MsgOutlet = null;
+			}
+
 			if (ResultsOutlet != null) {
 				ResultsOutlet.Dispose ();
 				ResultsOutlet = null;
@@ -54,25 +76,6 @@ namespace URLFriendly2
 				UserInputOutlet.Dispose ();
 				UserInputOutlet = null;
 			}
-
-			if (MsgOutlet != null) {
-				MsgOutlet.Dispose ();
-				MsgOutlet = null;
-			}
-		}
-	}
-
-	[Register ("MainWindow")]
-	partial class MainWindow
-	{
-		[Action ("ButtonDecode:")]
-		partial void ButtonDecode (MonoMac.Foundation.NSObject sender);
-
-		[Action ("ButtonEncode:")]
-		partial void ButtonEncode (MonoMac.Foundation.NSObject sender);
-		
-		void ReleaseDesignerOutlets ()
-		{
 		}
 	}
 }
