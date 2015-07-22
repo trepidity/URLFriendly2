@@ -15,6 +15,7 @@ namespace URLFriendly2
 		{
 			mainWindowController = new MainWindowController ();
 			mainWindowController.Window.MakeKeyAndOrderFront (this);
+
 		}
 
 		partial void Decode (NSObject sender)

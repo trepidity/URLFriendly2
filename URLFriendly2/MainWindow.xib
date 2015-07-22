@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="7706"/>
     </dependencies>
@@ -8,8 +8,19 @@
             <connections>
                 <outlet property="DecodeButton" destination="sKg-l7-joD" id="yL0-zF-vx4"/>
                 <outlet property="EncodeButton" destination="y6T-oY-hso" id="pPL-ZN-Op4"/>
+                <outlet property="EncodeDecodeTextFieldMethod" destination="uKG-L2-hrb" id="6wH-xP-jZy"/>
+                <outlet property="GenerateMessages" destination="e8A-Nd-s2p" id="4xd-jL-fG2"/>
+                <outlet property="IDPInitiated" destination="HDm-Z3-VPZ" id="RnA-M7-oL3"/>
+                <outlet property="IDPPortInput" destination="Ney-gv-Bet" id="Lu9-po-77i"/>
+                <outlet property="IdentityProviderField" destination="DK4-fl-tsf" id="Lgf-WG-5DI"/>
+                <outlet property="IdentityProvierProtocol" destination="m33-ic-r2f" id="N9a-AW-l4h"/>
                 <outlet property="MsgOutlet" destination="7cH-wa-N0b" id="KAH-0C-5lJ"/>
                 <outlet property="ResultsOutlet" destination="FNM-n1-2XO" id="sKv-Pt-taX"/>
+                <outlet property="SAML1" destination="vCg-7D-u12" id="8nZ-mk-rOW"/>
+                <outlet property="SAML2" destination="IMY-WW-HDX" id="Sot-ng-bbH"/>
+                <outlet property="SPInitiated" destination="uul-bH-jIx" id="CwB-MI-7dv"/>
+                <outlet property="ServiceProviderField" destination="o5R-DZ-sWX" id="OkG-Wo-3pZ"/>
+                <outlet property="TargetURLField" destination="kJR-qw-j6D" id="ZQO-9b-B3b"/>
                 <outlet property="UserInputOutlet" destination="uKG-L2-hrb" id="Pje-zd-UUJ"/>
                 <outlet property="window" destination="2" id="6"/>
             </connections>
@@ -19,11 +30,11 @@
         <window title="URLFriendly" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" showsToolbarButton="NO" animationBehavior="default" id="2" customClass="MainWindow">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-            <rect key="contentRect" x="131" y="74" width="823" height="231"/>
+            <rect key="contentRect" x="131" y="74" width="823" height="563"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1280" height="778"/>
             <value key="minSize" type="size" width="606" height="223"/>
             <view key="contentView" id="3">
-                <rect key="frame" x="0.0" y="0.0" width="823" height="231"/>
+                <rect key="frame" x="0.0" y="0.0" width="823" height="563"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="7cH-wa-N0b">
@@ -36,9 +47,9 @@
                         </textFieldCell>
                     </textField>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="IW2-a1-Ut4">
-                        <rect key="frame" x="18" y="214" width="48" height="17"/>
+                        <rect key="frame" x="18" y="214" width="475" height="17"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Input" id="YIX-m4-gRs">
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="URL encode or decode a string" id="YIX-m4-gRs">
                             <font key="font" metaFont="system"/>
                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -75,7 +86,7 @@
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                         <connections>
-                            <action selector="TextInput:" target="2" id="6Nj-Aw-MS2"/>
+                            <action selector="UserInput:" target="-2" id="zn1-sL-yY9"/>
                         </connections>
                     </textField>
                     <button verticalHuggingPriority="750" id="sKg-l7-joD">
@@ -91,9 +102,184 @@
                             <action selector="ButtonEncode:" target="-2" id="WmT-Dz-Hqm"/>
                         </connections>
                     </button>
+                    <textField verticalHuggingPriority="750" id="DK4-fl-tsf">
+                        <rect key="frame" x="107" y="496" width="313" height="22"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="host.domain.com" drawsBackground="YES" id="9q3-WH-mfN">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                        <connections>
+                            <action selector="IdentityProvider_INPUT:" target="-2" id="DYR-F7-lxS"/>
+                        </connections>
+                    </textField>
+                    <matrix verticalHuggingPriority="750" allowsEmptySelection="NO" autorecalculatesCellSize="YES" id="5gD-8q-DKd">
+                        <rect key="frame" x="20" y="470" width="146" height="18"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        <size key="cellSize" width="71" height="18"/>
+                        <size key="intercellSpacing" width="4" height="2"/>
+                        <buttonCell key="prototype" type="radio" title="Radio" imagePosition="left" alignment="left" inset="2" id="vV0-Ga-wLb">
+                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <cells>
+                            <column>
+                                <buttonCell type="radio" title="SAML 1" imagePosition="left" alignment="left" state="on" identifier="SAML1" tag="1" inset="2" id="vCg-7D-u12">
+                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                            </column>
+                            <column>
+                                <buttonCell type="radio" title="SAML 2" imagePosition="left" alignment="left" identifier="SAML2" inset="2" id="IMY-WW-HDX">
+                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                            </column>
+                        </cells>
+                        <connections>
+                            <action selector="SAML_TYPE_RADIO:" target="-2" id="5J4-eP-XL8"/>
+                        </connections>
+                    </matrix>
+                    <matrix verticalHuggingPriority="750" allowsEmptySelection="NO" autorecalculatesCellSize="YES" id="SEp-Hs-bp9">
+                        <rect key="frame" x="20" y="444" width="214" height="18"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        <size key="cellSize" width="98" height="18"/>
+                        <size key="intercellSpacing" width="4" height="2"/>
+                        <buttonCell key="prototype" type="radio" title="Radio" imagePosition="left" alignment="left" inset="2" id="8H7-R9-pA1">
+                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <cells>
+                            <column>
+                                <buttonCell type="radio" title="IDP Initiated" imagePosition="left" alignment="left" state="on" identifier="IDPInitiated" tag="1" inset="2" id="HDm-Z3-VPZ">
+                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                            </column>
+                            <column>
+                                <buttonCell type="radio" title="SP Initiated" imagePosition="left" alignment="left" identifier="SPInitiated" inset="2" id="uul-bH-jIx">
+                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                            </column>
+                        </cells>
+                        <connections>
+                            <action selector="InitiatedFederationType:" target="-2" id="ugC-Da-5oP"/>
+                        </connections>
+                    </matrix>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="yt6-fj-7tL">
+                        <rect key="frame" x="18" y="412" width="359" height="17"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Service Provider ID" id="D4W-8j-AYr">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <textField identifier="ServiceProvider_INPUT" verticalHuggingPriority="750" id="o5R-DZ-sWX">
+                        <rect key="frame" x="32" y="382" width="459" height="22"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="NUZ-Lb-JcA">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                        <connections>
+                            <action selector="ServiceProviderInput:" target="-2" id="3Kw-jJ-GUa"/>
+                        </connections>
+                    </textField>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="Ots-Fg-d0R">
+                        <rect key="frame" x="18" y="357" width="475" height="17"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Target URL" placeholderString="" id="2aQ-qF-fuH">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <textField verticalHuggingPriority="750" id="kJR-qw-j6D">
+                        <rect key="frame" x="32" y="330" width="459" height="22"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="Where you want the user to end after authenticated" drawsBackground="YES" id="Tg8-x1-AvJ">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                        <connections>
+                            <action selector="TargetURL:" target="-2" id="vrs-eB-BS6"/>
+                        </connections>
+                    </textField>
+                    <button verticalHuggingPriority="750" id="eMp-qs-6CZ">
+                        <rect key="frame" x="356" y="294" width="141" height="32"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <buttonCell key="cell" type="push" title="Generate URL" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="OW0-dS-IO9">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="GenerateUrlButton:" target="-2" id="TaA-oh-jT9"/>
+                        </connections>
+                    </button>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="57Y-w2-Fpd">
+                        <rect key="frame" x="426" y="526" width="38" height="17"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Port" id="djF-3v-vq5">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <textField verticalHuggingPriority="750" id="Ney-gv-Bet">
+                        <rect key="frame" x="428" y="496" width="58" height="22"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="dXg-aD-IKP">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <textField verticalHuggingPriority="750" id="e8A-Nd-s2p">
+                        <rect key="frame" x="358" y="271" width="445" height="22"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" state="on" drawsBackground="YES" id="vgs-rV-Fuj">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="windowBackgroundColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <textField verticalHuggingPriority="750" id="m33-ic-r2f">
+                        <rect key="frame" x="32" y="496" width="66" height="22"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="https" drawsBackground="YES" id="eC3-pi-W84">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="mzn-g0-yPB">
+                        <rect key="frame" x="18" y="526" width="82" height="17"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Protocal" id="JcL-Te-Ey7">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="lOa-QG-m1p">
+                        <rect key="frame" x="104" y="526" width="125" height="17"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="left" title="Identity Provider" id="z23-Ou-Hli">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
                 </subviews>
             </view>
-            <point key="canvasLocation" x="524.5" y="440.5"/>
+            <point key="canvasLocation" x="524.5" y="274.5"/>
         </window>
     </objects>
 </document>
