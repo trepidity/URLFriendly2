@@ -143,9 +143,9 @@ namespace URLFriendly2
 			else
 				sb.Append("idpsend");
 
-			sb.Append("?SP=");
+			sb.Append("?PID=");
 			sb.Append(spID);
-			sb.Append("&target=");
+			sb.Append("&TARGET=");
 			sb.Append(URLFriendly2.URLHandler2.Encode(targetURL));
 
 			Console.WriteLine (string.Format("Generated URL = {0}", sb.ToString()));
